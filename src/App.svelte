@@ -1,6 +1,5 @@
 <script lang="ts">
   import ShopItem from "./components/ShopItem.svelte"
-  import GlobalStyle from "./components/GlobalStyle.svelte"
   import type Item from "./types/ShopItem"
   let items: Item[] = [
     {
@@ -17,7 +16,6 @@
   let searchTerm = ""
 </script>
 
-<h1>srtkrsitki</h1>
 <main class="main">
   <input type="text" class="search-bar" bind:value={searchTerm} />
   <div class="items-display">
@@ -35,7 +33,10 @@
 <style lang="scss">
 
   :global {
-    @import "normalize.css/normalize.css"
+    @import "normalize.css/normalize.css";
+    * {
+      box-sizing: border-box;
+    }
   }
   .main {
     display: grid;
@@ -43,6 +44,11 @@
     "search search search" 
     "content content sidebar" ;
     grid-gap: 10px;
+    width: 80%;
+    max-width: 1280px;
+    margin: 2rem auto;
+    border: 1px solid black;
+    padding: 1.5rem;
   }
   .search-bar {
     grid-area: search;
@@ -55,8 +61,10 @@
 
   .items-list {
     display: grid;
-    grid-template-areas: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
+    padding: 0;
+    margin: 0;
   }
 
 </style>
