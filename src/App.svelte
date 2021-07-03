@@ -1,5 +1,6 @@
 <script lang="ts">
   import ShopItem from "./components/ShopItem.svelte"
+  import GlobalStyle from "./components/GlobalStyle.svelte"
   import type Item from "./types/ShopItem"
   let items: Item[] = [
     {
@@ -16,6 +17,7 @@
   let searchTerm = ""
 </script>
 
+<h1>srtkrsitki</h1>
 <main class="main">
   <input type="text" class="search-bar" bind:value={searchTerm} />
   <div class="items-display">
@@ -30,7 +32,11 @@
   </div>
 </main>
 
-<style>
+<style lang="scss">
+
+  :global {
+    @import "normalize.css/normalize.css"
+  }
   .main {
     display: grid;
     grid-template-areas:
