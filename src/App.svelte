@@ -11,6 +11,16 @@
       id: "riwkdyw3kdy",
       name: "Deku Breaker",
       price: 340
+    },
+    {
+      id: "streirtkdi",
+      name: "Ghost City V",
+      price: 2525
+    },
+    {
+      id: "rsinirsndridki",
+      name: "GVS",
+      price: 2666
     }
   ]
   let searchTerm = ""
@@ -42,7 +52,10 @@
     display: grid;
     grid-template-areas:
     "search search search" 
-    "content content sidebar" ;
+    "content content cart" 
+    "content content cart";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
     grid-gap: 10px;
     width: 80%;
     max-width: 1280px;
@@ -65,6 +78,12 @@
     grid-gap: 5px;
     padding: 0;
     margin: 0;
+  }
+  
+  .cart {
+    grid-area: cart;
+    padding: 1rem;
+    border: 1px solid black;
   }
 
 </style>
