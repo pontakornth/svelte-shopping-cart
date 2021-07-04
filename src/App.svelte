@@ -1,5 +1,6 @@
 <script lang="ts">
   import ShopItem from "./components/ShopItem.svelte"
+  import CartItem from "./components/CartItem.svelte"
   import type Item from "./types/ShopItem"
   let items: Item[] = [
     {
@@ -24,6 +25,22 @@
     }
   ]
   let searchTerm = ""
+  let cart: Map<Item, number> = new Map()
+  
+  function addToCart(item: Item) {
+    console.log(item)
+    if (cart.has(item)) {
+      cart.set(item, cart.get(item) + 1)
+      cart = cart
+    } else {
+      cart.set(item, 1)
+      cart = cart
+    }
+  }
+
+  function handleAdd(event: CustomEvent<Item>) {
+    addToCart(event.detail)
+  }
 </script>
 
 <main class="main">
@@ -31,12 +48,14 @@
   <div class="items-display">
     <ul class="items-list">
       {#each items as item (item.id)}
-      <ShopItem {item} />
+      <ShopItem {item} on:add={handleAdd} />
       {/each}
     </ul>
   </div>
   <div class="cart">
-    No items in the cart
+      {#each [...cart] as [item, amount] (item.id)}
+        <CartItem {item} {amount} />
+      {/each}
   </div>
 </main>
 
