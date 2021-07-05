@@ -6,8 +6,21 @@
 </script>
 
 <div class="cart-item">
-	<p class="cart-item-name">{item.name}</p>
-	<p class="cart-item-price">{item.price}</p>
-	<p class="cart-item-amount">{amount}</p>
-	<p class="cart-item-total-price">{totalPrice}</p>
+	<p class="cart-item-description">{item.name}: {item.price}</p>
+	<p class="cart-item-amount">Amount: {amount}</p>
+	<p class="cart-item-total-price">Total Price: {totalPrice}</p>
 </div>
+
+<style lang="scss">
+.cart-item {
+	border: 1px solid black;
+	padding: 1rem;
+	text-align: right;
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+	&-description {
+		font-weight: bold;
+	}
+}
+</style>

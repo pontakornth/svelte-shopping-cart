@@ -19,5 +19,22 @@ import { createEventDispatcher } from "svelte";
 	.shop-item {
 		border: 1px solid black;
 		padding: 1rem;
+		text-align: right;
+	}
+	.name {
+		font-weight: bold;
+	}
+	.price {
+		color: red;
+	}
+	.add-button {
+		border: none;
+		background: red;
+		color: white;
+		font-weight: bold;
+		padding: .55rem;
+		&:hover {
+			background: lighten(red, 25%);
+		}
 	}
 </style>
