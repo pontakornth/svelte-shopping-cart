@@ -12,7 +12,9 @@
 </div>
 
 <style lang="scss">
+@import "../assets/style.scss";
 .cart-item {
+	@extend %card-border;
 	border: 1px solid black;
 	padding: 1rem;
 	text-align: right;
@@ -21,6 +23,7 @@
 	}
 	&-description {
 		font-weight: bold;
+		font-family: "Kanit", sans-serif;
 	}
 }
 </style>

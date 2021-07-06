@@ -60,11 +60,15 @@
 </main>
 
 <style lang="scss">
-
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital@0;1&family=Kanit:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "./assets/style.scss";
   :global {
     @import "normalize.css/normalize.css";
     * {
       box-sizing: border-box;
+    }
+    html, body {
+      font-family: "K2D", sans-serif;
     }
   }
   .main {
@@ -81,6 +85,7 @@
     margin: 2rem auto;
     border: 1px solid black;
     padding: 1.5rem;
+    @extend %card-border;
   }
   .search-bar {
     grid-area: search;

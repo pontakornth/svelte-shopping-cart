@@ -1,0 +1,5 @@
+%card-border {
+	border-radius: 8px;
+	border: 2px solid opacify(#000, .35);
+	box-shadow: 4px 4px 8px 2px opacify(lighten(#000, 54%), .35);
+}

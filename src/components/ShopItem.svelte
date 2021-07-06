@@ -16,13 +16,16 @@ import { createEventDispatcher } from "svelte";
 </div>
 
 <style lang="scss">
+	@import "../assets/style.scss";
+
 	.shop-item {
+		@extend %card-border;
 		border: 1px solid black;
 		padding: 1rem;
 		text-align: right;
 	}
 	.name {
-		font-weight: bold;
+		font-family: "Kanit", sans-serif;
 	}
 	.price {
 		color: red;
