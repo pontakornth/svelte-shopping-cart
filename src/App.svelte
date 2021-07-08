@@ -26,6 +26,8 @@
   ]
   let searchTerm = ""
   let cart: Map<Item, number> = new Map()
+
+  $: totalPrice = Array.from(cart.entries()).reduce((prev, [item, amount]) => prev + item.price*amount, 0)
   
   function addToCart(item: Item) {
     console.log(item)
@@ -56,6 +58,11 @@
       {#each [...cart] as [item, amount] (item.id)}
         <CartItem {item} {amount} />
       {/each}
+      {#if cart}
+      <div class="total">
+        <p>Total: {totalPrice}</p>
+      </div>
+      {/if}
   </div>
 </main>
 
@@ -108,6 +115,12 @@
     grid-area: cart;
     padding: 1rem;
     border: 1px solid black;
+  }
+
+  .total {
+    @extend %card-border;
+    text-align: right;
+    padding: 1rem;
   }
 
 </style>
