@@ -36,6 +36,8 @@ import { createEventDispatcher } from "svelte";
 		color: white;
 		font-weight: bold;
 		padding: .55rem;
+		border-radius: 8px;
+		cursor: pointer;
 		&:hover {
 			background: lighten(red, 25%);
 		}
