@@ -2,6 +2,8 @@
   import ShopItem from "./components/ShopItem.svelte"
   import CartItem from "./components/CartItem.svelte"
   import type Item from "./types/ShopItem"
+  import Fuse from "fuse.js"
+
   let items: Item[] = [
     {
       id: "rsitbkrseitk",
@@ -25,6 +27,8 @@
     }
   ]
   let searchTerm = ""
+  const fuse = new Fuse(items, { keys: ['name']})
+  $: searchedItems = searchTerm.length ? fuse.search(searchTerm).map(r => r.item) : items
   let cart: Map<Item, number> = new Map()
 
   $: totalPrice = Array.from(cart.entries()).reduce((prev, [item, amount]) => prev + item.price*amount, 0)
@@ -49,7 +53,7 @@
   <input type="text" class="search-bar" bind:value={searchTerm} />
   <div class="items-display">
     <ul class="items-list">
-      {#each items as item (item.id)}
+      {#each searchedItems as item (item.id)}
       <ShopItem {item} on:add={handleAdd} />
       {/each}
     </ul>
